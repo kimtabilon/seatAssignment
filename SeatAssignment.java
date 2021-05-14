@@ -71,7 +71,7 @@ class SeatAssignment
 			System.out.println("You selected [Economy Class No Smoking] Seat "+seat);
 			ens.remove(seat);
 		} else {
-			System.out.println("Seat#:"+seat+" not available!");
+			System.out.println("Seat# "+seat+" is not available!");
 			seatValid = false;
 		}
 
@@ -82,13 +82,19 @@ class SeatAssignment
 				assigned.put(seat, passenger);
 			}
 		}
-
-		System.out.println("----------------------");
+		System.out.println("Press enter to continue...");
+		String cont=sc.nextLine();
+		
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
+		
 		System.out.println("PASSENGERS");
 	    assigned.entrySet().stream().forEach(a -> {
             System.out.println("seat# : "+a.getKey()+" ("+a.getValue()+")");
         });
-		System.out.println("----------------------");
+		
+		System.out.println("");
+		System.out.println("**************************************");
     }
  }
 }
