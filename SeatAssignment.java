@@ -56,26 +56,23 @@ class SeatAssignment
 		
 		System.out.println("Enter Seat#:");
 		String seat=sc.nextLine();
-		boolean seatValid = false;
+		boolean seatValid = true;
 
 		if(bcs.contains(seat)) {
 			System.out.println("You selected [Business Class Smoking] Seat "+seat);
 			bcs.remove(seat);
-			seatValid = true;
 		} else if (bcns.contains(seat)) {
 			System.out.println("You selected [Business Class No Smoking] Seat "+seat);
 			bcns.remove(seat);
-			seatValid = true;
 		} else if (es.contains(seat)) {
 			System.out.println("You selected [Economy Class Smoking] Seat "+seat);
 			es.remove(seat);
-			seatValid = true;
 		} else if (ens.contains(seat)) {
 			System.out.println("You selected [Economy Class No Smoking] Seat "+seat);
 			ens.remove(seat);
-			seatValid = true;
 		} else {
 			System.out.println("Seat#:"+seat+" not available!");
+			seatValid = false;
 		}
 
 		if(seatValid) {
