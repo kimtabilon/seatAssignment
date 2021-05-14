@@ -90,7 +90,7 @@ class SeatAssignment
 		
 		System.out.println("PASSENGERS");
 	    assigned.entrySet().stream().forEach(a -> {
-            System.out.println("seat# : "+a.getKey()+" ("+a.getValue()+")");
+            System.out.println("seat# "+a.getKey()+" : "+a.getValue());
         });
 		
 		System.out.println("");
