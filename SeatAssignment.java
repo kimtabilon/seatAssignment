@@ -94,7 +94,7 @@ class SeatAssignment
         });
 		
 		System.out.println("");
-		System.out.println("**************************************");
+		System.out.println("**************************");
     }
  }
 }
