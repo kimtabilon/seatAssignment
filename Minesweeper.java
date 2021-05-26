@@ -16,9 +16,14 @@ class Minesweeper
  	HashSet<String> bomb = new HashSet<String>();
  	HashSet<String> active = new HashSet<String>();
 
- 	bomb.add("1,2");
+ 	boolean exploded = false;
 
- 	for(int i=0;i<30;i++) {
+ 	bomb.add("1,2");
+ 	bomb.add("3,3");
+ 	bomb.add("5,4");
+ 	bomb.add("2,5");
+
+ 	for(int i=0;i<50;i++) {
 	 	System.out.println("    1   2   3   4   5 ");
 	 	System.out.println("   ------------------- ");
 	 	for (int row=1; row<=matrix; row++) {
@@ -27,11 +32,20 @@ class Minesweeper
 	 			if(active.contains(row+","+column)) {
 	 				System.out.print(" 1 |");
 	 			} else {
-	 				System.out.print("   |");
+	 				if(exploded && bomb.contains(row+","+column)) {
+	 					System.out.print(" x |");
+	 				} else {
+	 					System.out.print("   |");
+	 				}
 	 			}
 	 		}
 	 		System.out.println("");
 	 		System.out.println("   ------------------- ");
+	 	}
+
+	 	if(exploded) { 
+	 		System.out.println("Opps, bomb exploded. GAMEOVER");
+	 		break; 
 	 	}
 
 	 	Scanner sc=new Scanner(System.in);
@@ -54,8 +68,7 @@ class Minesweeper
 				String already=sc2.nextLine();
 			} else {
 				if(bomb.contains(irow+","+icolumn)) {
-					System.out.println("Opps, bomb exploded. GAMEOVER");
-					break;
+					exploded=true;
 				} else {
 					active.add(irow+","+icolumn);
 					// checking bombs for hints
