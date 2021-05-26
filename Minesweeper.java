@@ -19,9 +19,10 @@ class Minesweeper
  	boolean exploded = false;
 
  	bomb.add("1,2");
+ 	bomb.add("2,4");
+ 	bomb.add("2,5");
  	bomb.add("3,3");
  	bomb.add("5,4");
- 	bomb.add("2,5");
 
  	for(int i=0;i<50;i++) {
 	 	System.out.println("    1   2   3   4   5 ");
@@ -76,6 +77,8 @@ class Minesweeper
 					int count = 0;	
 					if(bomb.contains((irow+1)+","+(icolumn+1))) {sorround = true; count++;}
 					if(bomb.contains((irow-1)+","+(icolumn-1))) {sorround = true; count++;}
+					if(bomb.contains((irow-1)+","+(icolumn+1))) {sorround = true; count++;}
+					if(bomb.contains((irow+1)+","+(icolumn-1))) {sorround = true; count++;}
 					if(bomb.contains(irow+","+(icolumn+1))) {sorround = true; count++;}
 					if(bomb.contains((irow+1)+","+icolumn)) {sorround = true; count++;}
 					if(bomb.contains(irow+","+(icolumn-1))) {sorround = true; count++;}
