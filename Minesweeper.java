@@ -45,7 +45,7 @@ class Minesweeper
 	 	}
 
 	 	if(exploded) { 
-	 		System.out.println("Opps, bomb exploded. GAMEOVER");
+	 		System.out.println("Opps, Bomb Exploded. G A M E O V E R");
 	 		break; 
 	 	}
 
